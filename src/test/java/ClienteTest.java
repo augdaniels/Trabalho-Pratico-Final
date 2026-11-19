@@ -30,6 +30,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
             assertTrue(cliente.getIdCliente() > 0);
         }
+        @Test
+        void deveAlterarNomeDoCliente() {
+            Cliente cliente = new Cliente("Daniel", "31999999999");
+
+            cliente.setNome("Carlos");
+
+            assertEquals("Carlos", cliente.getNome());
+        }
 
     }
 

@@ -20,4 +20,5 @@ public class Cliente {
     public int getIdCliente() {
         return idCliente;
     }
+
 }
