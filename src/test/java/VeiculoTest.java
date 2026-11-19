@@ -19,4 +19,10 @@ public class VeiculoTest {
         assertEquals("XYZ5678", veiculo.getPlaca());
     }
 
+    @Test
+    void testGetModelo() {
+        Veiculo veiculo = new Veiculo("ABC1234", "Gol", null);
+
+        assertEquals("Gol", veiculo.getModelo());
+    }
     }
