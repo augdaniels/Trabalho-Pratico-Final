@@ -1,0 +1,13 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class VeiculoTest {
+
+    @Test
+    void testGetPlaca() {
+        Veiculo veiculo = new Veiculo("ABC1234", "Gol", null);
+
+        assertEquals("ABC1234", veiculo.getPlaca());
+    }
+
+    }
