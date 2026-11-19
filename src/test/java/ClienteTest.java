@@ -24,6 +24,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
             assertEquals("31999999999", cliente.getTelefone());
         }
+        @Test
+        void deveGerarIdAutomaticamente() {
+            Cliente cliente = new Cliente("Daniel", "31999999999");
+
+            assertTrue(cliente.getIdCliente() > 0);
+        }
 
     }
 
