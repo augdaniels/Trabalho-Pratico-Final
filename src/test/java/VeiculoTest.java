@@ -34,4 +34,13 @@ public class VeiculoTest {
 
         assertEquals("Onix", veiculo.getModelo());
     }
+
+    @Test
+    void testIdAutomatico() {
+        Veiculo veiculo1 = new Veiculo("ABC1234", "Gol", null);
+        Veiculo veiculo2 = new Veiculo("XYZ5678", "Onix", null);
+
+        assertEquals(veiculo1.getIdVeiculo() + 1,
+                veiculo2.getIdVeiculo());
+    }
     }
