@@ -43,4 +43,11 @@ public class VeiculoTest {
         assertEquals(veiculo1.getIdVeiculo() + 1,
                 veiculo2.getIdVeiculo());
     }
+
+    @Test
+    void testGetCliente() {
+        Veiculo veiculo = new Veiculo("ABC1234", "Gol", null);
+
+        assertNull(veiculo.getCliente());
+    }
     }
