@@ -18,6 +18,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
             assertEquals("Daniel", cliente.getNome());
         }
+        @Test
+        void deveRetornarTelefoneDoCliente() {
+            Cliente cliente = new Cliente("Daniel", "31999999999");
+
+            assertEquals("31999999999", cliente.getTelefone());
+        }
 
     }
 
