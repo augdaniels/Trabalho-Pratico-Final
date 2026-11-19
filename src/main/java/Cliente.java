@@ -20,5 +20,7 @@ public class Cliente {
     public int getIdCliente() {
         return idCliente;
     }
-
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
