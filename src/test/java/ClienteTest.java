@@ -10,6 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
             assertNotNull(cliente);
         }
+
+        @Test
+        void deveRetornarNomeDoCliente() {
+
+            Cliente cliente = new Cliente("Daniel", "31999999999");
+
+            assertEquals("Daniel", cliente.getNome());
+        }
+
     }
 
 
