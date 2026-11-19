@@ -11,4 +11,8 @@ public class Veiculo {
         this.modelo = modelo;
         this.cliente = cliente;
     }
+
+    public String getPlaca() {
+        return placa;
+    }
 }
