@@ -31,4 +31,8 @@ public class Veiculo {
     public int getIdVeiculo() {
         return idVeiculo;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
 }
