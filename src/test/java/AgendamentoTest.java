@@ -89,4 +89,11 @@ public class AgendamentoTest{
         agendamento.adicionarServico(new Servico("Lavagem",new BigDecimal("80.50")));
         assertEquals(1,agendamento.getServicos().size());
     }
+
+    @Test
+    public void deveCalcularTotal(){
+        agendamento.adicionarServico(new Servico("Lavagem",new BigDecimal("80.50")));
+        agendamento.adicionarServico(new Servico("Troca de oleo",new BigDecimal("100.25")));
+        assertEquals(new BigDecimal("180.75"),agendamento.calcularTotal());
+    }
 }
