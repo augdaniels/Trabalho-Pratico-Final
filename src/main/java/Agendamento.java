@@ -71,4 +71,12 @@ public class Agendamento{
     public void adicionarServico(Servico servico){
         this.servicos.add(servico);
     }
+
+    public BigDecimal calcularTotal(){
+        BigDecimal total=BigDecimal.ZERO;
+        for(Servico s : servicos){
+            total=total.add(s.getPreco());
+        }
+        return total;
+    }
 }
