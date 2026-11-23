@@ -83,4 +83,10 @@ public class AgendamentoTest{
     public void deveIniciarSemServicos(){
         assertTrue(agendamento.getServicos().isEmpty());
     }
+
+    @Test
+    public void deveAdicionarServico(){
+        agendamento.adicionarServico(new Servico("Lavagem",new BigDecimal("80.50")));
+        assertEquals(1,agendamento.getServicos().size());
+    }
 }
