@@ -43,4 +43,8 @@ public class Agendamento{
     public void setCliente(Cliente cliente){
         this.cliente=cliente;
     }
+
+    public Veiculo getVeiculo(){
+        return veiculo;
+    }
 }
