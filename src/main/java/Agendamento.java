@@ -51,4 +51,8 @@ public class Agendamento{
     public void setVeiculo(Veiculo veiculo){
         this.veiculo=veiculo;
     }
+
+    public Funcionario getFuncionario(){
+        return funcionario;
+    }
 }
