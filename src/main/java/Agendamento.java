@@ -67,4 +67,8 @@ public class Agendamento{
     public List<Servico> getServicos(){
         return servicos;
     }
+
+    public void adicionarServico(Servico servico){
+        this.servicos.add(servico);
+    }
 }
