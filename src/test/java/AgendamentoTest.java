@@ -66,4 +66,11 @@ public class AgendamentoTest{
     public void deveRetornarFuncionario(){
         assertEquals(funcionario,agendamento.getFuncionario());
     }
+
+    @Test
+    public void deveAlterarFuncionario(){
+        Funcionario nova=new Funcionario("Carlos","Eletricista");
+        agendamento.setFuncionario(nova);
+        assertEquals(nova,agendamento.getFuncionario());
+    }
 }
