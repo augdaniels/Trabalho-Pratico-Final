@@ -11,4 +11,13 @@ public class AgendamentoRepository{
     public List<Agendamento> listarTodos(){
         return agendamentos;
     }
+
+    public Agendamento buscarPorId(int id){
+        for(Agendamento a : agendamentos){
+            if(a.getIdAgendamento()==id){
+                return a;
+            }
+        }
+        return null;
+    }
 }
