@@ -101,4 +101,10 @@ public class AgendamentoTest{
     public void deveCalcularTotalZeroSemServicos(){
         assertEquals(BigDecimal.ZERO,agendamento.calcularTotal());
     }
+
+    @Test
+    public void deveConcluir(){
+        agendamento.concluir();
+        assertEquals(StatusAgendamento.CONCLUIDO,agendamento.getStatus());
+    }
 }
