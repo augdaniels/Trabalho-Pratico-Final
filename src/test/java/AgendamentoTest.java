@@ -37,4 +37,9 @@ public class AgendamentoTest{
         agendamento.setDataHora(nova);
         assertEquals(nova,agendamento.getDataHora());
     }
+
+    @Test
+    public void deveRetornarCliente(){
+        assertEquals(cliente,agendamento.getCliente());
+    }
 }
