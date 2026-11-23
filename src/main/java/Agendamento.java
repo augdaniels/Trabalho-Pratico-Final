@@ -59,4 +59,8 @@ public class Agendamento{
     public void setFuncionario(Funcionario funcionario){
         this.funcionario=funcionario;
     }
+
+    public StatusAgendamento getStatus(){
+        return status;
+    }
 }
