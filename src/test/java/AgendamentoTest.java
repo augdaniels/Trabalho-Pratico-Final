@@ -30,4 +30,11 @@ public class AgendamentoTest{
     public void deveRetornarDataHora(){
         assertEquals(LocalDateTime.of(2026,12,1,9,0),agendamento.getDataHora());
     }
+
+    @Test
+    public void deveAlterarDataHora(){
+        LocalDateTime nova=LocalDateTime.of(2026,12,5,14,30);
+        agendamento.setDataHora(nova);
+        assertEquals(nova,agendamento.getDataHora());
+    }
 }
