@@ -35,4 +35,11 @@ public class AgendamentoRepositoryTest{
     public void deveRetornarNullQuandoNaoAcharId(){
         assertNull(repository.buscarPorId(9999));
     }
+
+    @Test
+    public void deveRemover(){
+        repository.salvar(agendamento);
+        repository.remover(agendamento.getIdAgendamento());
+        assertTrue(repository.listarTodos().isEmpty());
+    }
 }
