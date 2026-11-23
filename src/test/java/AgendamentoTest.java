@@ -73,4 +73,9 @@ public class AgendamentoTest{
         agendamento.setFuncionario(nova);
         assertEquals(nova,agendamento.getFuncionario());
     }
+
+    @Test
+    public void deveIniciarComStatusAgendado(){
+        assertEquals(StatusAgendamento.AGENDADO,agendamento.getStatus());
+    }
 }
