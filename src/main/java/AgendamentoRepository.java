@@ -20,4 +20,11 @@ public class AgendamentoRepository{
         }
         return null;
     }
+
+    public void remover(int id){
+        Agendamento a=buscarPorId(id);
+        if(a!=null){
+            agendamentos.remove(a);
+        }
+    }
 }
