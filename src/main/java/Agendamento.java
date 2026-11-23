@@ -79,4 +79,8 @@ public class Agendamento{
         }
         return total;
     }
+
+    public void concluir(){
+        this.status=StatusAgendamento.CONCLUIDO;
+    }
 }
