@@ -107,4 +107,10 @@ public class AgendamentoTest{
         agendamento.concluir();
         assertEquals(StatusAgendamento.CONCLUIDO,agendamento.getStatus());
     }
+
+    @Test
+    public void deveCancelar(){
+        agendamento.cancelar();
+        assertEquals(StatusAgendamento.CANCELADO,agendamento.getStatus());
+    }
 }
