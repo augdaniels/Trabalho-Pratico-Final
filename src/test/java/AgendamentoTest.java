@@ -96,4 +96,9 @@ public class AgendamentoTest{
         agendamento.adicionarServico(new Servico("Troca de oleo",new BigDecimal("100.25")));
         assertEquals(new BigDecimal("180.75"),agendamento.calcularTotal());
     }
+
+    @Test
+    public void deveCalcularTotalZeroSemServicos(){
+        assertEquals(BigDecimal.ZERO,agendamento.calcularTotal());
+    }
 }
