@@ -61,4 +61,9 @@ public class AgendamentoTest{
         agendamento.setVeiculo(nova);
         assertEquals(nova,agendamento.getVeiculo());
     }
+
+    @Test
+    public void deveRetornarFuncionario(){
+        assertEquals(funcionario,agendamento.getFuncionario());
+    }
 }
