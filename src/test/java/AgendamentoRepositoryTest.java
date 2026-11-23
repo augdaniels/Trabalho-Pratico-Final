@@ -23,4 +23,16 @@ public class AgendamentoRepositoryTest{
         repository.salvar(agendamento);
         assertEquals(1,repository.listarTodos().size());
     }
+
+    @Test
+    public void deveBuscarPorId(){
+        repository.salvar(agendamento);
+        Agendamento achado=repository.buscarPorId(agendamento.getIdAgendamento());
+        assertEquals(agendamento,achado);
+    }
+
+    @Test
+    public void deveRetornarNullQuandoNaoAcharId(){
+        assertNull(repository.buscarPorId(9999));
+    }
 }
