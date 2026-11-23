@@ -25,4 +25,9 @@ public class AgendamentoTest{
         Agendamento outro=new Agendamento(LocalDateTime.of(2026,12,2,10,0),cliente,veiculo,funcionario);
         assertEquals(agendamento.getIdAgendamento()+1,outro.getIdAgendamento());
     }
+
+    @Test
+    public void deveRetornarDataHora(){
+        assertEquals(LocalDateTime.of(2026,12,1,9,0),agendamento.getDataHora());
+    }
 }
