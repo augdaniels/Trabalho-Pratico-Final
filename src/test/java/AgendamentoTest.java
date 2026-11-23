@@ -49,4 +49,9 @@ public class AgendamentoTest{
         agendamento.setCliente(nova);
         assertEquals(nova,agendamento.getCliente());
     }
+
+    @Test
+    public void deveRetornarVeiculo(){
+        assertEquals(veiculo,agendamento.getVeiculo());
+    }
 }
