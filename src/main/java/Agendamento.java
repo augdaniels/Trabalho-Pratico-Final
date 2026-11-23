@@ -83,4 +83,8 @@ public class Agendamento{
     public void concluir(){
         this.status=StatusAgendamento.CONCLUIDO;
     }
+
+    public void cancelar(){
+        this.status=StatusAgendamento.CANCELADO;
+    }
 }
