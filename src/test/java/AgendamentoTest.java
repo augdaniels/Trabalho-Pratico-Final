@@ -42,4 +42,11 @@ public class AgendamentoTest{
     public void deveRetornarCliente(){
         assertEquals(cliente,agendamento.getCliente());
     }
+
+    @Test
+    public void deveAlterarCliente(){
+        Cliente nova=new Cliente("Pedro","31888888888");
+        agendamento.setCliente(nova);
+        assertEquals(nova,agendamento.getCliente());
+    }
 }
