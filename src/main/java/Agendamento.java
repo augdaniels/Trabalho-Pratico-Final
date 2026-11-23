@@ -27,4 +27,8 @@ public class Agendamento{
     public int getIdAgendamento(){
         return idAgendamento;
     }
+
+    public LocalDateTime getDataHora(){
+        return dataHora;
+    }
 }
