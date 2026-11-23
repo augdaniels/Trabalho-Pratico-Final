@@ -78,4 +78,9 @@ public class AgendamentoTest{
     public void deveIniciarComStatusAgendado(){
         assertEquals(StatusAgendamento.AGENDADO,agendamento.getStatus());
     }
+
+    @Test
+    public void deveIniciarSemServicos(){
+        assertTrue(agendamento.getServicos().isEmpty());
+    }
 }
