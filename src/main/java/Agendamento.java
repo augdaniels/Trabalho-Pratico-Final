@@ -31,4 +31,8 @@ public class Agendamento{
     public LocalDateTime getDataHora(){
         return dataHora;
     }
+
+    public void setDataHora(LocalDateTime dataHora){
+        this.dataHora=dataHora;
+    }
 }
