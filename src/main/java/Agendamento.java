@@ -63,4 +63,8 @@ public class Agendamento{
     public StatusAgendamento getStatus(){
         return status;
     }
+
+    public List<Servico> getServicos(){
+        return servicos;
+    }
 }
