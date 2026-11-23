@@ -39,4 +39,8 @@ public class Agendamento{
     public Cliente getCliente(){
         return cliente;
     }
+
+    public void setCliente(Cliente cliente){
+        this.cliente=cliente;
+    }
 }
