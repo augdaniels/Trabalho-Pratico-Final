@@ -1,8 +1,16 @@
+import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServicoTest {
+    @BeforeEach
+    void limparServicos() {
+        for (int id = 101; id <= 110; id++) {
+            Servico.excluir(id);
+        }
+    }
 
     @Test
     void deveRetornarIdCorreto() {
