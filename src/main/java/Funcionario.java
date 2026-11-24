@@ -19,4 +19,14 @@ public class Funcionario {
     public String getCargo() {
         return cargo;
     }
+    public int getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(int idFuncionario) {
+        if (idFuncionario < 0) {
+            throw new IllegalArgumentException("O id não pode ser negativo");
+        }
+        this.idFuncionario = idFuncionario;
+    }
 }
