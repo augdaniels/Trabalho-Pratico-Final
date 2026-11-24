@@ -160,4 +160,64 @@ public class ServicoTest {
 
         assertEquals(null, Servico.consultar(104));
     }
+    @Test
+    void deveCadastrarOutroServico() {
+        Servico servico = new Servico(105, "Higienizacao", 150.00);
+        Servico.cadastrar(servico);
+
+        assertEquals(servico, Servico.consultar(105));
+    }
+
+    @Test
+    void deveCadastrarServicoComValorZero() {
+        Servico servico = new Servico(106, "Lavagem", 0.00);
+        Servico.cadastrar(servico);
+
+        assertEquals(servico, Servico.consultar(106));
+    }
+
+    @Test
+    void deveConsultarServicoInexistente() {
+        assertEquals(null, Servico.consultar(999));
+    }
+
+    @Test
+    void deveConsultarValorDoServico() {
+        Servico.cadastrar(new Servico(107, "Polimento", 90.00));
+
+        assertEquals(90.00, Servico.consultar(107).getValor(), 0.001);
+    }
+
+    @Test
+    void deveAtualizarValorParaZero() {
+        Servico.cadastrar(new Servico(108, "Lavagem", 50.00));
+        Servico.atualizar(108, "Lavagem", 0.00);
+
+        assertEquals(0.00, Servico.consultar(108).getValor(), 0.001);
+    }
+
+    @Test
+    void deveTentarAtualizarServicoInexistente() {
+        Servico.atualizar(998, "Lavagem", 50.00);
+
+        assertEquals(null, Servico.consultar(998));
+    }
+
+    @Test
+    void deveExcluirServicoSemAfetarOutro() {
+        Servico.cadastrar(new Servico(109, "Lavagem", 50.00));
+        Servico.cadastrar(new Servico(110, "Polimento", 100.00));
+
+        Servico.excluir(109);
+
+        assertEquals(null, Servico.consultar(109));
+        assertEquals("Polimento", Servico.consultar(110).getNome());
+    }
+
+    @Test
+    void deveTentarExcluirServicoInexistente() {
+        Servico.excluir(997);
+
+        assertEquals(null, Servico.consultar(997));
+    }
 }
