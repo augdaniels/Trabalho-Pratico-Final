@@ -44,4 +44,11 @@ public class ServicoTest {
 
         assertEquals(50.00, servico.getValor(), 0.001);
     }
+    @Test
+    void deveAlterarValor() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+        servico.setValor(80.00);
+
+        assertEquals(80.00, servico.getValor(), 0.001);
+    }
 }
