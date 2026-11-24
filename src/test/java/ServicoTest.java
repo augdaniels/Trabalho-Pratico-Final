@@ -122,4 +122,42 @@ public class ServicoTest {
 
         assertEquals(0, servico.getId());
     }
+    @Test
+    void deveCadastrarServico() {
+        Servico servico = new Servico(101, "Lavagem simples", 50.00);
+
+        Servico.cadastrar(servico);
+
+        assertEquals(servico, Servico.consultar(101));
+    }
+
+    @Test
+    void deveConsultarServico() {
+        Servico servico = new Servico(102, "Polimento", 100.00);
+
+        Servico.cadastrar(servico);
+
+        assertEquals(servico, Servico.consultar(102));
+    }
+
+    @Test
+    void deveAtualizarServico() {
+        Servico servico = new Servico(103, "Lavagem simples", 50.00);
+
+        Servico.cadastrar(servico);
+        Servico.atualizar(103, "Lavagem completa", 80.00);
+
+        assertEquals("Lavagem completa", Servico.consultar(103).getNome());
+        assertEquals(80.00, Servico.consultar(103).getValor(), 0.001);
+    }
+
+    @Test
+    void deveExcluirServico() {
+        Servico servico = new Servico(104, "Polimento", 100.00);
+
+        Servico.cadastrar(servico);
+        Servico.excluir(104);
+
+        assertEquals(null, Servico.consultar(104));
+    }
 }
