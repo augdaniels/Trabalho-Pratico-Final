@@ -10,4 +10,11 @@ public class ServicoTest {
 
         assertEquals(1, servico.getId());
     }
+
+    @Test
+    void deveRetornarIdZero() {
+        Servico servico = new Servico(0, "Lavagem simples", 50.00);
+
+        assertEquals(0, servico.getId());
+    }
 }
