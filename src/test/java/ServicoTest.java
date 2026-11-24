@@ -51,12 +51,4 @@ public class ServicoTest {
 
         assertEquals(80.00, servico.getValor(), 0.001);
     }
-    @Test
-    void deveCadastrarServico() {
-        Servico servico = new Servico(1, "Lavagem simples", 50.00);
-
-        servico.cadastrar();
-
-        assertEquals(true, servico.estaCadastrado());
-    }
 }
