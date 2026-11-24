@@ -31,4 +31,11 @@ public class ServicoTest {
 
         assertEquals("Lavagem simples", servico.getNome());
     }
+    @Test
+    void deveAlterarNome() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+        servico.setNome("Lavagem completa");
+
+        assertEquals("Lavagem completa", servico.getNome());
+    }
 }
