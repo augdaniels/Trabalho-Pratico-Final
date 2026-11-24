@@ -17,4 +17,12 @@ public class ServicoTest {
 
         assertEquals(0, servico.getId());
     }
+    @Test
+    void deveAlterarId() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+
+        servico.setId(2);
+
+        assertEquals(2, servico.getId());
+    }
 }
