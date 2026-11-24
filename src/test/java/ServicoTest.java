@@ -57,4 +57,62 @@ public class ServicoTest {
 
         assertEquals(100, servico.getId());
     }
+    @Test
+    void deveAlterarIdNovamente() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+        servico.setId(100);
+        assertEquals(100, servico.getId());
+    }
+
+    @Test
+    void deveRetornarOutroNome() {
+        Servico servico = new Servico(2, "Polimento", 100.00);
+        assertEquals("Polimento", servico.getNome());
+    }
+
+    @Test
+    void deveRetornarNomeComposto() {
+        Servico servico = new Servico(3, "Lavagem completa", 80.00);
+        assertEquals("Lavagem completa", servico.getNome());
+    }
+
+    @Test
+    void deveAlterarNomeParaPolimento() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+        servico.setNome("Polimento");
+        assertEquals("Polimento", servico.getNome());
+    }
+
+    @Test
+    void deveAlterarNomeParaHigienizacao() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+        servico.setNome("Higienizacao");
+        assertEquals("Higienizacao", servico.getNome());
+    }
+
+    @Test
+    void deveRetornarValorZero() {
+        Servico servico = new Servico(1, "Lavagem simples", 0.00);
+        assertEquals(0.00, servico.getValor(), 0.001);
+    }
+
+    @Test
+    void deveRetornarValorDecimal() {
+        Servico servico = new Servico(1, "Lavagem simples", 59.90);
+        assertEquals(59.90, servico.getValor(), 0.001);
+    }
+
+    @Test
+    void deveAlterarValorParaZero() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+        servico.setValor(0.00);
+        assertEquals(0.00, servico.getValor(), 0.001);
+    }
+
+    @Test
+    void deveAlterarValorDecimal() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+        servico.setValor(79.90);
+        assertEquals(79.90, servico.getValor(), 0.001);
+    }
 }
