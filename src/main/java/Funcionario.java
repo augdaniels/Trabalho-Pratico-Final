@@ -35,4 +35,10 @@ public class Funcionario {
         }
         this.nome = nome;
     }
+    public void setCargo(String cargo) {
+        if (cargo == null || cargo.isBlank()) {
+            throw new IllegalArgumentException("O cargo não pode ser vazio");
+        }
+        this.cargo = cargo;
+    }
 }
