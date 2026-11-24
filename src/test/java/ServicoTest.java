@@ -38,4 +38,10 @@ public class ServicoTest {
 
         assertEquals("Lavagem completa", servico.getNome());
     }
+    @Test
+    void deveRetornarValorCorreto() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+
+        assertEquals(50.00, servico.getValor(), 0.001);
+    }
 }
