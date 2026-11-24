@@ -25,4 +25,10 @@ public class ServicoTest {
 
         assertEquals(2, servico.getId());
     }
+    @Test
+    void deveRetornarNomeCorreto() {
+        Servico servico = new Servico(1, "Lavagem simples", 50.00);
+
+        assertEquals("Lavagem simples", servico.getNome());
+    }
 }
