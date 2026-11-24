@@ -67,4 +67,23 @@ class FuncionarioTest {
         Funcionario f = new Funcionario("Carlos", "Lavador");
         assertThrows(IllegalArgumentException.class, () -> f.setNome("   "));
     }
+    @Test
+    void setCargoDeveAlterarOCargo() {
+        Funcionario f = new Funcionario("Carlos", "Lavador");
+        f.setCargo("Atendente");
+        assertEquals("Atendente", f.getCargo());
+    }
+
+    @Test
+    void setCargoDeveAceitarCargoComUmCaractere() {
+        Funcionario f = new Funcionario("Carlos", "Lavador");
+        f.setCargo("X");
+        assertEquals("X", f.getCargo());
+    }
+
+    @Test
+    void setCargoDeveLancarErroComCargoNulo() {
+        Funcionario f = new Funcionario("Carlos", "Lavador");
+        assertThrows(IllegalArgumentException.class, () -> f.setCargo(null));
+    }
 }
