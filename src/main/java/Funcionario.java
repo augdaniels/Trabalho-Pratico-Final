@@ -29,4 +29,10 @@ public class Funcionario {
         }
         this.idFuncionario = idFuncionario;
     }
+    public void setNome(String nome) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome não pode ser vazio");
+        }
+        this.nome = nome;
+    }
 }
