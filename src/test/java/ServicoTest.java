@@ -51,4 +51,10 @@ public class ServicoTest {
 
         assertEquals(80.00, servico.getValor(), 0.001);
     }
+    @Test
+    void deveRetornarIdMaior() {
+        Servico servico = new Servico(100, "Lavagem simples", 50.00);
+
+        assertEquals(100, servico.getId());
+    }
 }
