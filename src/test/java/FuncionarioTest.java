@@ -48,4 +48,23 @@ class FuncionarioTest {
         assertThrows(IllegalArgumentException.class,
                 () -> f.setIdFuncionario(-1));
     }
+    @Test
+    void setNomeDeveAlterarONome() {
+        Funcionario f = new Funcionario("Carlos", "Lavador");
+        f.setNome("Pedro");
+        assertEquals("Pedro", f.getNome());
+    }
+
+    @Test
+    void setNomeDeveAceitarNomeComUmCaractere() {
+        Funcionario f = new Funcionario("Carlos", "Lavador");
+        f.setNome("B");
+        assertEquals("B", f.getNome());
+    }
+
+    @Test
+    void setNomeDeveLancarErroComNomeVazio() {
+        Funcionario f = new Funcionario("Carlos", "Lavador");
+        assertThrows(IllegalArgumentException.class, () -> f.setNome("   "));
+    }
 }
