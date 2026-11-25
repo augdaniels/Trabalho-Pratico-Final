@@ -1,8 +1,6 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Pagamento {
@@ -14,11 +12,10 @@ public class Pagamento {
     private LocalDateTime dataPagamento;
     private Agendamento agendamento;
 
-    public Pagamento(Agendamento agendamento, TipoPagamento tipoPagamento) {
+    public Pagamento(Agendamento agendamento) {
         this.idPagamento = proximoId++;
         this.agendamento = agendamento;
         this.valor = agendamento.calcularTotal();
-        this.tipoPagamento = tipoPagamento;
         this.statusPagamento = StatusPagamento.PENDENTE;
     }
 
