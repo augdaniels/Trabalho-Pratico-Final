@@ -30,8 +30,6 @@ class PagamentoTest {
         return saida.toString(StandardCharsets.UTF_8);
     }
 
-    // Agendamento só com o total que o teste quer. Não usa Cliente, Veiculo, Funcionario
-    // nem Servico. Se o construtor do Agendamento mudar, ajuste só este método.
     private static Agendamento agendamentoComTotal(String total) {
         BigDecimal valor = new BigDecimal(total);
         return new Agendamento() {
@@ -46,6 +44,8 @@ class PagamentoTest {
     private static Scanner digitando(String texto) {
         return new Scanner(texto);
     }
+
+
     @Test
     void novoPagamento_comecaPendenteSemTipoComValorDoAgendamento() {
         Pagamento pagamento = new Pagamento(agendamentoComTotal("40.00"));
