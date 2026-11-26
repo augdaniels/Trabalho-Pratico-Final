@@ -1,25 +1,31 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Servico {
 
-    private int id;
-    private String nome;
-    private double valor;
+    private static int proximoId = 1;
     private static final List<Servico> servicos = new ArrayList<>();
 
-    public Servico(int id, String nome, double valor) {
-        this.id = id;
+    private final int id;
+    private String nome;
+    private BigDecimal valor;
+
+    public Servico(String nome, BigDecimal valor) {
+        validarValor(valor);
+        this.id = proximoId++;
         this.nome = nome;
         this.valor = valor;
     }
 
-    public int getId() {
-        return id;
+    private static void validarValor(BigDecimal valor) {
+        if (valor == null || valor.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("O valor do serviço não pode ser nulo nem negativo.");
+        }
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -30,13 +36,15 @@ public class Servico {
         this.nome = nome;
     }
 
-    public double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(BigDecimal valor) {
+        validarValor(valor);
         this.valor = valor;
     }
+
     public static void cadastrar(Servico servico) {
         servicos.add(servico);
     }
@@ -50,7 +58,7 @@ public class Servico {
         return null;
     }
 
-    public static void atualizar(int id, String nome, double valor) {
+    public static void atualizar(int id, String nome, BigDecimal valor) {
         Servico servico = consultar(id);
 
         if (servico != null) {
