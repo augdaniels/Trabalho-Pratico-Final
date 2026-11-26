@@ -32,7 +32,7 @@ class PagamentoTest {
 
     private static Agendamento agendamentoComTotal(String total) {
         BigDecimal valor = new BigDecimal(total);
-        return new Agendamento() {
+        return new Agendamento(null, null, null, null) {
             @Override
             public BigDecimal calcularTotal() {
                 return valor;
@@ -40,9 +40,20 @@ class PagamentoTest {
         };
     }
 
+    private static Pagamento pagamentoValido() {
+        Agendamento agendamento = new Agendamento(null, null, null, null);
+        agendamento.adicionarServico(new Servico("Lavagem", new BigDecimal("40.00")));
+        return new Pagamento(agendamento);
+    }
+
     // Simula o usuário digitando no console
     private static Scanner digitando(String texto) {
         return new Scanner(texto);
+    }
+
+    @Test
+    void construtor_agendamentoNulo_lancaIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> new Pagamento(null));
     }
 
 
@@ -53,6 +64,42 @@ class PagamentoTest {
         assertEquals(StatusPagamento.PENDENTE, pagamento.getStatusPagamento());
         assertNull(pagamento.getTipoPagamento());
         assertEquals(0, new BigDecimal("40.00").compareTo(pagamento.getValor()));
+    }
+
+    @Test
+    void construtor_totalZero_lancaIllegalArgumentException() {
+        Agendamento semServicos = new Agendamento(null, null, null, null);
+
+        assertThrows(IllegalArgumentException.class, () -> new Pagamento(semServicos));
+    }
+
+    @Test
+    void construtor_agendamentoCancelado_lancaIllegalArgumentException() {
+        Agendamento agendamento = new Agendamento(null, null, null, null);
+        agendamento.cancelar();
+
+        assertThrows(IllegalArgumentException.class, () -> new Pagamento(agendamento));
+    }
+
+    @Test
+    void setValor_nulo_lancaIllegalArgumentException() {
+        Pagamento pagamento = pagamentoValido();
+
+        assertThrows(IllegalArgumentException.class, () -> pagamento.setValor(null));
+    }
+
+    @Test
+    void setValor_zero_lancaIllegalArgumentException() {
+        Pagamento pagamento = pagamentoValido();
+
+        assertThrows(IllegalArgumentException.class, () -> pagamento.setValor(BigDecimal.ZERO));
+    }
+
+    @Test
+    void setValor_negativo_lancaIllegalArgumentException() {
+        Pagamento pagamento = pagamentoValido();
+
+        assertThrows(IllegalArgumentException.class, () -> pagamento.setValor(new BigDecimal("-1")));
     }
 
     @Test
@@ -111,6 +158,17 @@ class PagamentoTest {
         pagamento.registrarPagamento(digitando("4\n50,50\n"));
 
         assertTrue(textoImpresso().contains("Troco: R$ 10.50"));
+    }
+
+    @Test
+    void registrar_agendamentoCanceladoDepois_lancaIllegalStateException() {
+        Agendamento agendamento = new Agendamento(null, null, null, null);
+        agendamento.adicionarServico(new Servico("Lavagem", new BigDecimal("40.00")));
+        Pagamento pagamento = new Pagamento(agendamento);
+        agendamento.cancelar();
+
+        assertThrows(IllegalStateException.class,
+                () -> pagamento.registrarPagamento(new Scanner("3\n")));
     }
 
     @Test

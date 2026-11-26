@@ -6,12 +6,12 @@ import java.util.List;
 public class Agendamento{
     private static int proximoId=1;
 
-    private int idAgendamento;
+    private final int idAgendamento;
     private LocalDateTime dataHora;
     private Cliente cliente;
     private Veiculo veiculo;
     private Funcionario funcionario;
-    private List<Servico> servicos;
+    private final List<Servico> servicos;
     private StatusAgendamento status;
 
     public Agendamento(LocalDateTime dataHora, Cliente cliente, Veiculo veiculo, Funcionario funcionario){
@@ -69,19 +69,24 @@ public class Agendamento{
     }
 
     public void adicionarServico(Servico servico){
+        if(servico==null){
+            throw new IllegalArgumentException("O serviço não pode ser nulo.");
+        }
         this.servicos.add(servico);
     }
 
     public BigDecimal calcularTotal(){
         BigDecimal total=BigDecimal.ZERO;
         for(Servico s : servicos){
-            total=total.add(s.getPreco());
+            total=total.add(s.getValor());
         }
         return total;
     }
 
     public void concluir(){
-        this.status=StatusAgendamento.CONCLUIDO;
+        if (this.status != StatusAgendamento.CANCELADO) {
+            this.status = StatusAgendamento.CONCLUIDO;
+        }
     }
 
     public void cancelar(){

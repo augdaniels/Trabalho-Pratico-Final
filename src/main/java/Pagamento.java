@@ -13,9 +13,19 @@ public class Pagamento {
     private Agendamento agendamento;
 
     public Pagamento(Agendamento agendamento) {
+        if (agendamento == null) {
+            throw new IllegalArgumentException("O agendamento não pode ser nulo.");
+        }
+        if (agendamento.getStatus() == StatusAgendamento.CANCELADO) {
+            throw new IllegalArgumentException("Não é possível pagar um agendamento cancelado.");
+        }
+        BigDecimal total = agendamento.calcularTotal();
+        if (total == null || total.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("O valor do pagamento deve ser maior que zero.");
+        }
         this.idPagamento = proximoId++;
         this.agendamento = agendamento;
-        this.valor = agendamento.calcularTotal();
+        this.valor = total;
         this.statusPagamento = StatusPagamento.PENDENTE;
     }
 
@@ -24,6 +34,11 @@ public class Pagamento {
             throw new IllegalStateException(
                     "Só é possível registrar um pagamento PENDENTE. Status atual: " + statusPagamento);
         }
+        if (agendamento.getStatus() == StatusAgendamento.CANCELADO) {
+            throw new IllegalStateException(
+                    "Não é possível registrar o pagamento de um agendamento cancelado.");
+        }
+
         tipoPagamento = selecionarTipo(scanner);
         System.out.println("Valor a cobrar: " + formatar(valor));
 

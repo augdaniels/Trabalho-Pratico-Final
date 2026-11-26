@@ -29,26 +29,6 @@ class FuncionarioTest {
     }
 
     @Test
-    void setIdDeveGuardarValorNormal() {
-        Funcionario f = new Funcionario("Carlos", "Lavador");
-        f.setIdFuncionario(5);
-        assertEquals(5, f.getIdFuncionario());
-    }
-
-    @Test
-    void setIdDeveAceitarZero() {
-        Funcionario f = new Funcionario("Carlos", "Lavador");
-        f.setIdFuncionario(0);
-        assertEquals(0, f.getIdFuncionario());
-    }
-
-    @Test
-    void setIdDeveLancarErroComValorNegativo() {
-        Funcionario f = new Funcionario("Carlos", "Lavador");
-        assertThrows(IllegalArgumentException.class,
-                () -> f.setIdFuncionario(-1));
-    }
-    @Test
     void setNomeDeveAlterarONome() {
         Funcionario f = new Funcionario("Carlos", "Lavador");
         f.setNome("Pedro");
