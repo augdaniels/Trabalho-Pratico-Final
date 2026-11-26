@@ -12,9 +12,16 @@ public class Servico {
     private BigDecimal valor;
 
     public Servico(String nome, BigDecimal valor) {
+        validarValor(valor);
         this.id = proximoId++;
         this.nome = nome;
         this.valor = valor;
+    }
+
+    private static void validarValor(BigDecimal valor) {
+        if (valor == null || valor.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("O valor do serviço não pode ser nulo nem negativo.");
+        }
     }
 
     public int getId() {
@@ -34,6 +41,7 @@ public class Servico {
     }
 
     public void setValor(BigDecimal valor) {
+        validarValor(valor);
         this.valor = valor;
     }
 
