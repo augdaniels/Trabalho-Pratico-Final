@@ -73,7 +73,7 @@ public class Main {
         scanner.close();
     }
 
-    // Mostra o valor sempre com 2 casas (ex.: R$ 25.00)
+    // Mostra o valor sempre com 2 casas
     private static String dinheiro(BigDecimal valor) {
         return "R$ " + valor.setScale(2, RoundingMode.HALF_UP);
     }
@@ -87,23 +87,6 @@ public class Main {
                 return entrada;
             }
             System.out.println("O campo não pode ficar vazio.");
-        }
-    }
-
-    // Repete até o usuário digitar um valor maior que zero (aceita vírgula ou ponto)
-    private static BigDecimal lerValor(Scanner scanner, String mensagem) {
-        while (true) {
-            System.out.print(mensagem);
-            String entrada = scanner.nextLine().trim().replace(',', '.');
-            try {
-                BigDecimal numero = new BigDecimal(entrada);
-                if (numero.compareTo(BigDecimal.ZERO) > 0) {
-                    return numero;
-                }
-            } catch (NumberFormatException e) {
-                // cai na mensagem abaixo
-            }
-            System.out.println("Valor inválido. Digite um número maior que zero (ex.: 40,00).");
         }
     }
 
