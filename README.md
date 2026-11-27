@@ -1,7 +1,9 @@
 # Trabalho-Pr-tico-Final
 
 ## Guia para rodar o projeto
-1- git clone [link do repositório]
+1- 
+```bash 
+git clone https://github.com/augdaniels/Trabalho-Pratico-Final.git```
 
 2- Run - Main
 
