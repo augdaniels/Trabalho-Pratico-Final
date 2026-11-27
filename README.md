@@ -4,3 +4,6 @@
 1- git clone [link do repositório]
 
 2- Run - Main
+
+## Configuração
+JDK 17
